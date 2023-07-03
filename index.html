@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Site de Corações</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Define o tamanho máximo da foto */
+    .photo-gallery {
+      text-align: center;
+    }
+
+    .photo-gallery img {
+      max-width: 700px;
+      max-height: 700px;
+      display: inline-block;
+    }
+
+    .photo-gallery .caption {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .photo-gallery .caption-text {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>Te amo meu Amor</h1>
+        <div class="button-container">
+          <button id="btn-me-ama" style="background-color: pink;">Me Ama?</button>
+        </div>
+      </header>
+  
+  <main>
+    <section>
+      <h2>Fotos da gente 😃😃</h2>
+      <div class="photo-gallery">
+        <div>
+          <img id="photo" src="" alt="Foto Fofa">
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <button id="btn-randomize" style="background-color: pink;">Carregar Fotos</button>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 Feito por Jhonatas Alves de Moura.</p>
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+const firebaseConfig = {
+      apiKey: "AIzaSyCAcPecmY-DptbG4nGmFUwsaRes42K_MoI",
+      authDomain: "ano-f46fc.firebaseapp.com",
+      projectId: "ano-f46fc",
+      storageBucket: "ano-f46fc.appspot.com",
+      messagingSenderId: "285850795054",
+      appId: "1:285850795054:web:5527324cc966edc59ff3bf",
+      measurementId: "G-2G9E3Z82V0"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Get a reference to the Firebase Storage
+    const storage = firebase.storage();
+
+    // Get a reference to the photo element
+    const photoElement = document.getElementById('photo');
+
+    // Get a reference to the randomize button
+    const randomizeButton = document.getElementById('btn-randomize');
+
+    // Function to load a random photo from Firebase Storage
+    function loadRandomPhoto() {
+      // List all the files in the root of Firebase Storage
+      storage.ref().listAll().then((res) => {
+        // Select a random file from the list
+        const randomIndex = Math.floor(Math.random() * res.items.length);
+        const randomPhotoRef = res.items[randomIndex];
+
+        // Get the download URL for the random photo
+        randomPhotoRef.getDownloadURL().then((url) => {
+          // Display the random photo
+          photoElement.src = url;
+
+          // Print the URL to the console
+          console.log(url);
+        }).catch((error) => {
+          console.log(error);
+        });
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
+    const btnMeAma = document.getElementById('btn-me-ama');
+
+    btnMeAma.addEventListener('click', () => {
+    window.location.href = 'pergunta.html';
+    });
+
+    // Add an event listener to the randomize button
+    randomizeButton.addEventListener('click', loadRandomPhoto);
+
+  </script>
+</body>
+</html>

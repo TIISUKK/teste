@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fde5e5; /* Cor de fundo rosa */
+  }
+  
+  header {
+    background-color: #f89fb3; /* Cor de fundo rosa claro para o cabeçalho */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Cor do texto branco para os links */
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #f89fb3; /* Cor do título rosa claro */
+  }
+  
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  footer {
+    background-color: #f89fb3; /* Cor de fundo rosa claro para o rodapé */
+    padding: 20px;
+    text-align: center;
+    color: #fff; /* Cor do texto branco para o rodapé */
+  }

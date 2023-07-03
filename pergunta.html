@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pergunta</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fde5e5; /* Cor de fundo rosa */
+    }
+
+    header {
+      background-color: #f89fb3; /* Cor de fundo rosa claro para o cabeçalho */
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #f89fb3; /* Cor do título rosa claro */
+    }
+
+    .button-container {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: pink;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .button-container button:hover {
+      position: relative;
+      left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Te amo meu Amor</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Você me ama?</h2>
+      <div class="button-container">
+        <button id="btn-sim">Sim</button>
+      </div>
+      <div class="button-container">
+        <button id="btn-nao">Não</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Feito por Jhonatas Alves de Moura.</p>
+  </footer>
+
+  <script>
+    const btnSim = document.getElementById('btn-sim');
+
+    btnSim.addEventListener('click', () => {
+      alert('Parabéns por fazer a escolha certa');
+    });
+
+    const btnNao = document.getElementById('btn-nao');
+
+    btnNao.addEventListener('mouseover', () => {
+      const randomPositionX = Math.floor(Math.random() * (window.innerWidth - btnNao.offsetWidth));
+      const randomPositionY = Math.floor(Math.random() * (window.innerHeight - btnNao.offsetHeight));
+      btnNao.style.position = 'fixed';
+      btnNao.style.left = randomPositionX + 'px';
+      btnNao.style.top = randomPositionY + 'px';
+    });
+  </script>
+</body>
+</html>
